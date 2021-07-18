@@ -1,0 +1,115 @@
+.country{
+    padding: 50px;
+}
+
+.btn{
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    border: 2px solid hsl(207, 26%, 17%);
+    padding: 4px 20px;
+}
+
+.btn-light{
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.btn.light-theme{
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+    border: none;
+    box-shadow: 0 5px 20px hsl(0, 0%, 90%);
+}
+
+.btn.light-theme:hover{
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+}
+
+.btn-info{
+    padding-left: 10px;
+}
+
+.country article .country-details div{
+    margin: 30px 0;
+}
+
+.country article .country-details div h2{
+    font-weight: 600;
+    font-size: 30px;
+
+}
+
+.country article .country-details div h5{
+    font-weight: 600;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.country article .country-details div h5 span{
+    font-weight: 300;
+}
+
+.country article h3{
+    font-weight: 600;
+}
+
+.country article .borders{
+    display: flex;
+}
+
+.country article .borders ul{
+    list-style-type: none;
+    margin-right : 10px;
+    background-color: hsl(209, 23%, 22%);
+    padding: 3px 15px;
+    border-radius: 3px;
+    box-shadow: 0 5px 20px hsl(207, 26%, 17%);
+}
+
+.country article .borders ul.light-theme{
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+    box-shadow: 0 5px 20px hsl(0, 0%, 90%);
+}
+
+@media (min-width: 1008px) {
+
+
+
+    .country article{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .country-image{
+        flex: 1 1 300px;
+        margin-right: 90px;
+    }
+
+    .country-details{
+        flex: 1 1 300px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top : -32px;
+    }
+
+    .border-info, .country-name{
+        /*flex: 400px;*/
+        width: 100%;
+    }
+
+    .left-info{
+        padding-right: 40px;
+    }
+    /*.side-info{
+        padding-top: 40px;
+        padding-left: 30px;
+    }*/
+
+    .country article .country-details div h5 span{
+        font-weight: 300;
+    }
+
+}

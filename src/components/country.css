@@ -2,33 +2,57 @@
     padding: 50px;
 }
 
-.btn{
-    background-color: hsl(209, 23%, 22%);
-    color: hsl(0, 0%, 100%);
-    border: 2px solid hsl(207, 26%, 17%);
+.btx{
+    background-color: hsl(209, 23%, 22%) ;
+    color: hsl(0, 0%, 100%) ;
+    border: 2px solid hsl(207, 26%, 17%) ;
     padding: 4px 20px;
-}
-
-.btn-light{
     margin-bottom: 30px;
     display: inline-block;
+    text-decoration: none;
 }
 
-.btn.light-theme{
-    background-color: hsl(0, 0%, 98%);
-    color: hsl(200, 15%, 8%);
-    border: none;
-    box-shadow: 0 5px 20px hsl(0, 0%, 90%);
+.btx:hover{
+    background-color: hsl(0, 0%, 98%) !important;
+    color: hsl(200, 15%, 8%) !important;
+    text-decoration: none;
 }
 
-.btn.light-theme:hover{
-    background-color: hsl(209, 23%, 22%);
-    color: hsl(0, 0%, 100%);
+
+.btx span{
+    padding-left: 10px;
+    text-decoration: none !important;
+    font-family: inherit;
 }
 
-.btn-info{
+.btx.light-theme{
+    background-color: hsl(0, 0%, 98%) ;
+    color: hsl(200, 15%, 8%) ;
+    border: none ;
+    box-shadow: 0 5px 20px hsl(0, 0%, 90%) ;
+}
+
+.btx.light-theme:hover{
+    background-color: hsl(209, 23%, 22%) !important;
+    color: hsl(0, 0%, 100%) !important;
+}
+
+
+
+/*.btn.light-theme{
+    background-color: hsl(0, 0%, 98%) !important;
+    color: hsl(200, 15%, 8%) !important;
+    border: none !important;
+    box-shadow: 0 5px 20px hsl(0, 0%, 90%) !important;
+}
+.btn span{
     padding-left: 10px;
 }
+*/
+
+
+
+
 
 .country article .country-details div{
     margin: 30px 0;
@@ -56,6 +80,8 @@
 
 .country article .borders{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .country article .borders ul{
@@ -103,10 +129,6 @@
     .left-info{
         padding-right: 40px;
     }
-    /*.side-info{
-        padding-top: 40px;
-        padding-left: 30px;
-    }*/
 
     .country article .country-details div h5 span{
         font-weight: 300;

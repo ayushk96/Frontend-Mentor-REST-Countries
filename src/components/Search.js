@@ -7,11 +7,17 @@ class Search extends React.Component {
         super();
         this.countries = [];
         this.state = {
+            loading: true,
             filteredCountries: [],
         };
     }
 
     performAPICall = async () => {
+
+        this.setState({
+            loading: true,
+          });
+
         try {
             const res = await fetch(url);
             const count = await res.json();
@@ -19,6 +25,8 @@ class Search extends React.Component {
         } catch (err) {
             return null;
         }
+
+    
     }
 
     getCountries = async () => {
@@ -26,15 +34,30 @@ class Search extends React.Component {
         this.countries = res;
         this.setState({
             filteredCountries: [...this.countries],
+            loading: false,
         })
     }
 
     componentDidMount = () => {
         this.getCountries();
+
+        let details = document.querySelectorAll('.card');
+        const header = document.querySelector('.header');
+        const input = document.querySelector('#search');
+        const select = document.querySelector('.select');
+        if ((window.getComputedStyle(header, null).getPropertyValue('background-color')) != 'rgb(43, 57, 69)') {
+            details.forEach((detail) => {
+                detail.classList.toggle('light-theme');
+            });
+            if (input)
+                input.classList.toggle('light-theme');
+            if (select)
+                select.classList.toggle('light-theme');
+        }
     }
 
     componentDidUpdate = () => {
-        let details = document.querySelectorAll('.details');
+        let details = document.querySelectorAll('.card');
         const header = document.querySelector('.header');
         const input = document.querySelector('#search');
         const select = document.querySelector('.select');
@@ -50,13 +73,17 @@ class Search extends React.Component {
     }
 
     searchCountry = (text) => {
+        this.setState({
+            loading: true,
+          });
         let temp = this.countries.filter((da) => {
             return da.name.toLowerCase().includes(text.toLowerCase());
         });
         this.setState({
             filteredCountries: [...temp],
+            loading: false,
         });
-        let details = document.querySelectorAll('.details');
+        let details = document.querySelectorAll('.card');
         const input = document.querySelector('#search');
         const select = document.querySelector('.select');
         const header = document.querySelector('.header');
@@ -72,9 +99,13 @@ class Search extends React.Component {
     }
 
     searchRegion = (text) => {
+        this.setState({
+            loading: true,
+          });
         if (text == 'Filter by Region') {
             this.setState({
                 filteredCountries: [...this.countries],
+                loading: false,
             })
         }
         else {
@@ -83,9 +114,10 @@ class Search extends React.Component {
             });
             this.setState({
                 filteredCountries: [...temp],
+                loading: false,
             })
         }
-        let details = document.querySelectorAll('.details');
+        let details = document.querySelectorAll('.card');
         const input = document.querySelector('#search');
         const select = document.querySelector('.select');
         const header = document.querySelector('.header');
@@ -104,9 +136,9 @@ class Search extends React.Component {
         return (
             <>
                 <section className="filter">
-                    <form className='form-control'>
+                    <form className='form-contro'>
                         <input type="search" className="search" id="search" placeholder="&#xf002;    Search for a country..." onChange
-                            ={(e) => this.searchCountry(e.target.value)} />
+                            ={(e) => this.searchCountry(e.target.value)}  />
                     </form>
                     <div className="region-filter">
                         <select name="select" id="select" className="select" onChange={(e) => this.searchRegion(e.target.value)}>
@@ -120,7 +152,10 @@ class Search extends React.Component {
                         </select>
                     </div>
                 </section>
-                <Item countries={this.state.filteredCountries} />
+                {this.state.loading ? 
+                <h2 className = "not-found"> Loading ..</h2>
+                : <Item countries={this.state.filteredCountries} />}
+                
             </>
         )
     }

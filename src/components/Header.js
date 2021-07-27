@@ -4,15 +4,15 @@ const Header = () => {
 
 
     function changeTheme() {
-        const sel = document.querySelector('.fa-moon');
+        const body = document.querySelector('#bdy');
         const header = document.querySelector('.header');
         const input = document.querySelector('#search');
         const select = document.querySelector('.select');
-        const details = document.querySelectorAll('.details');
+        const details = document.querySelectorAll('.card');
         const borders = document.querySelectorAll('ul');
-        const butt = document.querySelector('.btn');
+        const butt = document.querySelector('.btx');
 
-        document.body.classList.toggle('light-theme');
+        body.classList.toggle('light-theme');
         header.classList.toggle('light-theme');
         if (input)
             input.classList.toggle('light-theme');
@@ -40,8 +40,8 @@ const Header = () => {
                         Where in the world?
                     </h1>
                 </div>
-                <div>
-                    <i className='fas fa-moon' onClick={(() => changeTheme())}></i><span className="moon">Dark Mode</span>
+                <div onClick={(() => changeTheme())} className="theme">
+                    <i className='fas fa-moon' ></i><span className="moon">Dark Mode</span>
                 </div>
             </header>
         </>

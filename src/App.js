@@ -11,7 +11,10 @@ function App() {
       <Route exact path="/">
           <Search />
       </Route>
-      <Route path="/countries/:name" children={<Country />}></Route>
+      {/*<Route path="/countries/:name" children={<Country />}></Route>*/}
+      <switch>
+      <Route path="/countries/:name" exact component={Country} ></Route>
+      </switch>
     </Router>
   );
 }
